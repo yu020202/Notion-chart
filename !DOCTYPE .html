@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribution Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(7, 20px);
+            grid-gap: 5px;
+        }
+        .cell {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="contributionGrid"></div>
+
+    <script>
+        const data = [
+            // Example data for the first 6 months
+            [0, 0, 1, 2, 0, 0, 0],
+            [0, 2, 0, 0, 0, 0, 0],
+            [1, 0, 2, 1, 0, 0, 0],
+            [0, 1, 0, 0, 2, 1, 0],
+            [2, 0, 0, 0, 0, 0, 1],
+            // ... add more data for the rest of the days
+        ];
+
+        const colors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
+
+        const grid = document.getElementById('contributionGrid');
+
+        data.forEach(week => {
+            week.forEach(day => {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                cell.style.backgroundColor = colors[day];
+                grid.appendChild(cell);
+            });
+        });
+    </script>
+</body>
+</html>
